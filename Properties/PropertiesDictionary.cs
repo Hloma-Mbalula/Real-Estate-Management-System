@@ -4,9 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Real_Estate_Management_System.Properties
+namespace System
 {
-    internal class ResidentialDic
+    public class PropertyManager
     {
+        public Dictionary<int, Property> ResidentialProperties { get; private set; }
+
+        public Dictionary<int, Property> CommercialProperties { get; private set; }
+
+        public PropertyManager()
+        {
+            ResidentialProperties = new Dictionary<int, Property>();
+            CommercialProperties = new Dictionary<int, Property>();
+
+        }
     }
 }

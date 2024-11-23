@@ -4,9 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Real_Estate_Management_System.Properties
+namespace System
 {
-    internal class Property
+    public class Property
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Location { get; set; }
+        public double Price { get; set; }
+        public string PropertyType { get; set; }
+
+        public override string ToString()
+        {
+            return $"ID: {Id}, Name: {Name}, Location: {Location}, Price: {Price:D}, Type: {PropertyType}";
+        }
     }
 }

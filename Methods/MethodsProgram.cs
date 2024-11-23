@@ -29,6 +29,7 @@ namespace System
         {
             Console.WriteLine("Managing Properties");
 
+
         }
 
         // Managing Clients
@@ -54,6 +55,46 @@ namespace System
         public void Exit()
         {
             Console.WriteLine("Exiting program");
+        }
+
+        // Option 1 Menu Methods (Manage Properties)
+        // Add
+        public void Add()
+        {
+            Console.WriteLine();
+
+        }
+
+        // View all
+        public void View()
+        {
+            Console.WriteLine();
+        }
+
+        // Search
+        public void Search()
+        {
+            Console.WriteLine();
+        }
+
+        // Edit
+        public void Edit()
+        {
+            Console.WriteLine();
+        }
+
+        // Delete
+        public void Delete()
+        {
+            Console.WriteLine();
+
+        }
+
+        // Back to main menu
+        public void Back()
+        {
+            Console.Clear();
+            
         }
     }
 
