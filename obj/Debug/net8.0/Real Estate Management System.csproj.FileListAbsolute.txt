@@ -1,0 +1,15 @@
+C:\Users\27682\Desktop\C# Beginner Projects\Real Estate Management System\bin\Debug\net8.0\Real Estate Management System.exe
+C:\Users\27682\Desktop\C# Beginner Projects\Real Estate Management System\bin\Debug\net8.0\Real Estate Management System.deps.json
+C:\Users\27682\Desktop\C# Beginner Projects\Real Estate Management System\bin\Debug\net8.0\Real Estate Management System.runtimeconfig.json
+C:\Users\27682\Desktop\C# Beginner Projects\Real Estate Management System\bin\Debug\net8.0\Real Estate Management System.dll
+C:\Users\27682\Desktop\C# Beginner Projects\Real Estate Management System\bin\Debug\net8.0\Real Estate Management System.pdb
+C:\Users\27682\Desktop\C# Beginner Projects\Real Estate Management System\obj\Debug\net8.0\Real Estate Management System.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\27682\Desktop\C# Beginner Projects\Real Estate Management System\obj\Debug\net8.0\Real Estate Management System.AssemblyInfoInputs.cache
+C:\Users\27682\Desktop\C# Beginner Projects\Real Estate Management System\obj\Debug\net8.0\Real Estate Management System.AssemblyInfo.cs
+C:\Users\27682\Desktop\C# Beginner Projects\Real Estate Management System\obj\Debug\net8.0\Real Estate Management System.csproj.CoreCompileInputs.cache
+C:\Users\27682\Desktop\C# Beginner Projects\Real Estate Management System\obj\Debug\net8.0\Real Estate Management System.sourcelink.json
+C:\Users\27682\Desktop\C# Beginner Projects\Real Estate Management System\obj\Debug\net8.0\Real Estate Management System.dll
+C:\Users\27682\Desktop\C# Beginner Projects\Real Estate Management System\obj\Debug\net8.0\refint\Real Estate Management System.dll
+C:\Users\27682\Desktop\C# Beginner Projects\Real Estate Management System\obj\Debug\net8.0\Real Estate Management System.pdb
+C:\Users\27682\Desktop\C# Beginner Projects\Real Estate Management System\obj\Debug\net8.0\Real Estate Management System.genruntimeconfig.cache
+C:\Users\27682\Desktop\C# Beginner Projects\Real Estate Management System\obj\Debug\net8.0\ref\Real Estate Management System.dll

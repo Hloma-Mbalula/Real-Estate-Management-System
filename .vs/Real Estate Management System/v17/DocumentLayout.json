@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\27682\\Desktop\\C# Beginner Projects\\Real Estate Management System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{41D0AB89-AE6A-4638-B104-11409483270B}|Real Estate Management System.csproj|c:\\users\\27682\\desktop\\c# beginner projects\\real estate management system\\menus\\managepropertiesmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41D0AB89-AE6A-4638-B104-11409483270B}|Real Estate Management System.csproj|solutionrelative:menus\\managepropertiesmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{41D0AB89-AE6A-4638-B104-11409483270B}|Real Estate Management System.csproj|c:\\users\\27682\\desktop\\c# beginner projects\\real estate management system\\menus\\manageclientmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41D0AB89-AE6A-4638-B104-11409483270B}|Real Estate Management System.csproj|solutionrelative:menus\\manageclientmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{41D0AB89-AE6A-4638-B104-11409483270B}|Real Estate Management System.csproj|c:\\users\\27682\\desktop\\c# beginner projects\\real estate management system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41D0AB89-AE6A-4638-B104-11409483270B}|Real Estate Management System.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41D0AB89-AE6A-4638-B104-11409483270B}|Real Estate Management System.csproj|c:\\users\\27682\\desktop\\c# beginner projects\\real estate management system\\methods\\methodsprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41D0AB89-AE6A-4638-B104-11409483270B}|Real Estate Management System.csproj|solutionrelative:methods\\methodsprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{41D0AB89-AE6A-4638-B104-11409483270B}|Real Estate Management System.csproj|c:\\users\\27682\\desktop\\c# beginner projects\\real estate management system\\client\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41D0AB89-AE6A-4638-B104-11409483270B}|Real Estate Management System.csproj|solutionrelative:client\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,27 +27,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ManagePropertiesMenu.cs",
-              "DocumentMoniker": "C:\\Users\\27682\\Desktop\\C# Beginner Projects\\Real Estate Management System\\Menus\\ManagePropertiesMenu.cs",
-              "RelativeDocumentMoniker": "Menus\\ManagePropertiesMenu.cs",
-              "ToolTip": "C:\\Users\\27682\\Desktop\\C# Beginner Projects\\Real Estate Management System\\Menus\\ManagePropertiesMenu.cs",
-              "RelativeToolTip": "Menus\\ManagePropertiesMenu.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAiwBgAAAAJAAAAAAAAAA==",
+              "Title": "ManageClientMenu.cs",
+              "DocumentMoniker": "C:\\Users\\27682\\Desktop\\C# Beginner Projects\\Real Estate Management System\\Menus\\ManageClientMenu.cs",
+              "RelativeDocumentMoniker": "Menus\\ManageClientMenu.cs",
+              "ToolTip": "C:\\Users\\27682\\Desktop\\C# Beginner Projects\\Real Estate Management System\\Menus\\ManageClientMenu.cs",
+              "RelativeToolTip": "Menus\\ManageClientMenu.cs",
+              "ViewState": "AgIAALIAAAAAAAAAAAAswMUAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T13:22:06.012Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MethodsProgram.cs",
-              "DocumentMoniker": "C:\\Users\\27682\\Desktop\\C# Beginner Projects\\Real Estate Management System\\Methods\\MethodsProgram.cs",
-              "RelativeDocumentMoniker": "Methods\\MethodsProgram.cs",
-              "ToolTip": "C:\\Users\\27682\\Desktop\\C# Beginner Projects\\Real Estate Management System\\Methods\\MethodsProgram.cs",
-              "RelativeToolTip": "Methods\\MethodsProgram.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAqwGAAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T13:13:03.004Z",
+              "WhenOpened": "2024-11-27T14:08:57.233Z",
               "EditorCaption": ""
             },
             {
@@ -62,9 +49,22 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\27682\\Desktop\\C# Beginner Projects\\Real Estate Management System\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAiwCMAAABPAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-21T07:01:41.337Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Client.cs",
+              "DocumentMoniker": "C:\\Users\\27682\\Desktop\\C# Beginner Projects\\Real Estate Management System\\Client\\Client.cs",
+              "RelativeDocumentMoniker": "Client\\Client.cs",
+              "ToolTip": "C:\\Users\\27682\\Desktop\\C# Beginner Projects\\Real Estate Management System\\Client\\Client.cs",
+              "RelativeToolTip": "Client\\Client.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA9wBEAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T14:09:49.654Z",
               "EditorCaption": ""
             }
           ]

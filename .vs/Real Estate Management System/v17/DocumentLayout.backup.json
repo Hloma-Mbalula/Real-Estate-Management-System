@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\27682\\Desktop\\C# Beginner Projects\\Real Estate Management System\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{41D0AB89-AE6A-4638-B104-11409483270B}|Real Estate Management System.csproj|c:\\users\\27682\\desktop\\c# beginner projects\\real estate management system\\transactions\\transactions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41D0AB89-AE6A-4638-B104-11409483270B}|Real Estate Management System.csproj|solutionrelative:transactions\\transactions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41D0AB89-AE6A-4638-B104-11409483270B}|Real Estate Management System.csproj|c:\\users\\27682\\desktop\\c# beginner projects\\real estate management system\\menus\\mainmenudictionary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41D0AB89-AE6A-4638-B104-11409483270B}|Real Estate Management System.csproj|solutionrelative:menus\\mainmenudictionary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{41D0AB89-AE6A-4638-B104-11409483270B}|Real Estate Management System.csproj|c:\\users\\27682\\desktop\\c# beginner projects\\real estate management system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41D0AB89-AE6A-4638-B104-11409483270B}|Real Estate Management System.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41D0AB89-AE6A-4638-B104-11409483270B}|Real Estate Management System.csproj|c:\\users\\27682\\desktop\\c# beginner projects\\real estate management system\\methodsprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41D0AB89-AE6A-4638-B104-11409483270B}|Real Estate Management System.csproj|solutionrelative:methodsprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41D0AB89-AE6A-4638-B104-11409483270B}|Real Estate Management System.csproj|c:\\users\\27682\\desktop\\c# beginner projects\\real estate management system\\mainmenudictionary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41D0AB89-AE6A-4638-B104-11409483270B}|Real Estate Management System.csproj|solutionrelative:mainmenudictionary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,8 +22,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Transactions.cs",
+              "DocumentMoniker": "C:\\Users\\27682\\Desktop\\C# Beginner Projects\\Real Estate Management System\\Transactions\\Transactions.cs",
+              "RelativeDocumentMoniker": "Transactions\\Transactions.cs",
+              "ToolTip": "C:\\Users\\27682\\Desktop\\C# Beginner Projects\\Real Estate Management System\\Transactions\\Transactions.cs*",
+              "RelativeToolTip": "Transactions\\Transactions.cs*",
+              "ViewState": "AgIAADMAAAAAAAAAAAAYwEQAAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T12:20:25.026Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainMenuDictionary.cs",
+              "DocumentMoniker": "C:\\Users\\27682\\Desktop\\C# Beginner Projects\\Real Estate Management System\\Menus\\MainMenuDictionary.cs",
+              "RelativeDocumentMoniker": "Menus\\MainMenuDictionary.cs",
+              "ToolTip": "C:\\Users\\27682\\Desktop\\C# Beginner Projects\\Real Estate Management System\\Menus\\MainMenuDictionary.cs",
+              "RelativeToolTip": "Menus\\MainMenuDictionary.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAwwDYAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T09:07:38.285Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
@@ -31,36 +57,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MainMenuDictionary.cs",
-              "DocumentMoniker": "C:\\Users\\27682\\Desktop\\C# Beginner Projects\\Real Estate Management System\\MainMenuDictionary.cs",
-              "RelativeDocumentMoniker": "MainMenuDictionary.cs",
-              "ToolTip": "C:\\Users\\27682\\Desktop\\C# Beginner Projects\\Real Estate Management System\\MainMenuDictionary.cs",
-              "RelativeToolTip": "MainMenuDictionary.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAqwBEAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T07:36:25.512Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MethodsProgram.cs",
-              "DocumentMoniker": "C:\\Users\\27682\\Desktop\\C# Beginner Projects\\Real Estate Management System\\MethodsProgram.cs",
-              "RelativeDocumentMoniker": "MethodsProgram.cs",
-              "ToolTip": "C:\\Users\\27682\\Desktop\\C# Beginner Projects\\Real Estate Management System\\MethodsProgram.cs",
-              "RelativeToolTip": "MethodsProgram.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAgwBYAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T07:31:24.58Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\27682\\Desktop\\C# Beginner Projects\\Real Estate Management System\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\27682\\Desktop\\C# Beginner Projects\\Real Estate Management System\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAqwBQAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAADQAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-21T07:01:41.337Z",
               "EditorCaption": ""
