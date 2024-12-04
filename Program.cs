@@ -5,16 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 using Program;
 
-namespace MainProgram
+namespace Program
 {
-    public class MainProgram
+    public class Program
     {
         static void Main(string[] args)
         {
-            var method = new MainMenu();
-
-            Console.WriteLine("Welcome to Proton Estates");
+            Console.WriteLine("Welcome To Proton Estates");
             Thread.Sleep(1000);
+
+            Console.WriteLine("...Loading");
+            Thread.Sleep(1000);
+
+            PrintMainMenu();
+
+
+        }
+
+        // Main Menu 
+        public static void PrintMainMenu()
+        {
+            var method = new MainMenu();
 
             Console.Clear();
 
@@ -46,13 +57,7 @@ namespace MainProgram
             {
                 Console.WriteLine("Invalid input, Please enter a number.");
             }
-
-        }
-
-        // Back to main Menu Method
-        static void BackToMain()
-        {
-
-        }
+        }  
+        
     }
 }

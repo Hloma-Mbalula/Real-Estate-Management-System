@@ -97,8 +97,7 @@ namespace Program
         // Back to main menu
         public void Back()
         {
-            Console.Clear();
-
+            NavigationUtils.BackToMain();
         }
     }
 }

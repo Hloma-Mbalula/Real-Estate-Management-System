@@ -37,7 +37,8 @@ namespace Program
             Console.WriteLine("         Record Transaction       ");
             Console.WriteLine("----------------------------------\n");
             Console.WriteLine("1. Record Transation");
-            Console.WriteLine("2. View Transtions \n");
+            Console.WriteLine("2. View Transtions");
+            Console.WriteLine("3. Back To Main Menu\n");
             Console.WriteLine("----------------------------------\n");
             Console.Write("Select an option: ");
 

@@ -22,7 +22,8 @@ namespace Program
                 {2, ViewClients },
                 {3, SearchClients },
                 {4, EditClients },
-                {5, DeleteClients }
+                {5, DeleteClients },
+                {6,  }
             };
         }
         // Managing Clients

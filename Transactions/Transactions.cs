@@ -16,10 +16,11 @@ namespace Program
 
         public string TransactionName { get; private set; }
 
-        public Transaction( string transactionType, string transactionName)
+        public Transaction( string transactionType, string transactionName, int transactionId) 
         {
             transactionType = TransactionType;
             transactionName = TransactionName;
+            transactionId = TransactionId;
         }
 
         // Record method
@@ -33,45 +34,55 @@ namespace Program
         {
             ListOfTransactions = new Dictionary<int, Transaction>();
         }
-    }
 
-    public class TransactionMethod()
-    {
-        public void Record()
+        public void AddTransaction(Transaction transaction)
         {
-            string name;
-            string type;
-            int id = 0;
-
-            Console.Write("Enter the name of the property: \n");
-            name = Console.ReadLine();
-
-            Console.Write("Enter the type of Transaction: \n");
-            type = Console.ReadLine();
-            id++;
-
-            var trans = new Transaction(type, name);
-            var list = new DictionaryOfTransactions();
-
-            list.ListOfTransactions.Add(id, trans);
-
+            ListOfTransactions.Add(transaction.TransactionId, transaction);
         }
 
-        public void ViewRecords()
+        public void ViewTransactions()
         {
-            var list = new DictionaryOfTransactions();
-            for (int i = 0; i < list.ListOfTransactions.Count; i++)
+            if (ListOfTransactions.Count == 0)
             {
-                if(list.ListOfTransactions.Count > 0)
+                Console.WriteLine("No transactions recorded.\n");
+            }
+            else
+            {
+                foreach(var transaction in ListOfTransactions)
                 {
-                    Console.WriteLine(i);
-                }
-                else if (list.ListOfTransactions.Count < 0 || list.ListOfTransactions.Count == 0)
-                {
-                    Console.WriteLine("   No transactions recorded.\n");
+                    Console.WriteLine($"ID: {transaction.Key} - Type: {transaction.Value.TransactionType} - Name: {transaction.Value.TransactionName}");
                 }
             }
-            
         }
+
+        // class that holds transctions methods
+        public class TransctionsMethods
+        {
+            private static DictionaryOfTransactions transactionList = new DictionaryOfTransactions();
+            private static int transactionIdCounter = 1;
+
+            public void Record()
+            {
+                Console.Write("Enter the name of the transaction: ");
+                string name = Console.ReadLine();
+
+                Console.Write("Enter the name of transaction: ");
+                string type = Console.ReadLine();
+
+                var transaction = new Transaction(type, name, transactionIdCounter);
+                transactionList.AddTransaction(transaction);
+
+                transactionIdCounter++;
+                Console.WriteLine("Transaction recorded successfully!\n");
+            }
+
+            public void View()
+            {
+                transactionList.ViewTransactions();
+            }
+
+        }
+
+        
     }
 }
