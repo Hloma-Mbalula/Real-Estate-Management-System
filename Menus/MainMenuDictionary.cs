@@ -13,7 +13,8 @@ namespace Program
         ManagePropertiesMenu managePropsMethod = new ManagePropertiesMenu();
         ManageClientMenu manageClientsMethod = new ManageClientMenu();
         DictionaryOfTransactions listOfTrans = new DictionaryOfTransactions();
-        TransactionMethod method = new TransactionMethod();
+        DictionaryOfTransactions.TransctionsMethods method = new DictionaryOfTransactions.TransctionsMethods();
+        
 
         // Dictionary for the  main menu
         public Dictionary<int, Action> MainMenuOptions { get; private set; }
@@ -24,7 +25,7 @@ namespace Program
                 {1, managePropsMethod.ManageProperties },
                 {2, manageClientsMethod.ManageClients },
                 {3, RecordTransaction },
-                {4, VeiwReports },
+                {4, Reports },
                 {5, Exit }
             };
         }
@@ -32,37 +33,54 @@ namespace Program
         // Record Transaction
         public void RecordTransaction()
         {
-            
+
             Console.WriteLine("----------------------------------");
             Console.WriteLine("         Record Transaction       ");
             Console.WriteLine("----------------------------------\n");
             Console.WriteLine("1. Record Transation");
-            Console.WriteLine("2. View Transtions");
+            Console.WriteLine("2. View Transactions");
             Console.WriteLine("3. Back To Main Menu\n");
             Console.WriteLine("----------------------------------\n");
             Console.Write("Select an option: ");
 
             int option = Convert.ToInt32(Console.ReadLine());
-            if(option == 1)
+            switch (option)
             {
-                method.Record();
+                case 1:
+                    method.Record();
+                    break;
+                case 2:
+                    Console.WriteLine("----------------------------------");
+                    Console.WriteLine("           Transactions           ");
+                    Console.WriteLine("----------------------------------\n");
+                    method.View();
+                    Console.WriteLine("----------------------------------");
+                    break;
+                case 3:
+                    NavigationUtils.BackToMain();
+                    break;
+                default:
+                    Console.WriteLine("Incorrect option, please try again!");
+                    return;
+
+
+
             }
-            else if(option == 2)
-            {
-                Console.WriteLine("----------------------------------");
-                Console.WriteLine("           Transactions           ");
-                Console.WriteLine("----------------------------------\n");
-                method.ViewRecords();
-                Console.WriteLine("----------------------------------");
-            }
-     
+
         }
 
-        // Viewing Reports 
-        public void VeiwReports()
+        // Reports Menu
+        public void Reports()
         {
-            Console.WriteLine("Viewing reports");
+
+            Console.WriteLine("----------------------------------");
+            Console.WriteLine("           Reports           ");
+            Console.WriteLine("----------------------------------\n");
+            Console.WriteLine("1. Properties Report");
+            Console.WriteLine("2. Cients Report\n");
+            Console.WriteLine("----------------------------------");
         }
+
 
         // Exit
         public void Exit()

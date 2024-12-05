@@ -23,7 +23,7 @@ namespace Program
                 {3, SearchClients },
                 {4, EditClients },
                 {5, DeleteClients },
-                {6,  }
+                {6, NavigationUtils.BackToMain }
             };
         }
         // Managing Clients
