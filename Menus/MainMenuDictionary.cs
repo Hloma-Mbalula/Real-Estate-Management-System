@@ -14,6 +14,7 @@ namespace Program
         ManageClientMenu manageClientsMethod = new ManageClientMenu();
         DictionaryOfTransactions listOfTrans = new DictionaryOfTransactions();
         DictionaryOfTransactions.TransctionsMethods method = new DictionaryOfTransactions.TransctionsMethods();
+        Reports reports = new Reports();
         
 
         // Dictionary for the  main menu
@@ -50,11 +51,17 @@ namespace Program
                     method.Record();
                     break;
                 case 2:
+                    Console.Clear();
                     Console.WriteLine("----------------------------------");
                     Console.WriteLine("           Transactions           ");
                     Console.WriteLine("----------------------------------\n");
                     method.View();
-                    Console.WriteLine("----------------------------------");
+                    Console.WriteLine("----------------------------------\n");
+
+                    Console.Write("Press any key to return to main menu: ");
+                    Console.ReadLine();
+                    NavigationUtils.BackToMain();
+
                     break;
                 case 3:
                     NavigationUtils.BackToMain();
@@ -77,8 +84,47 @@ namespace Program
             Console.WriteLine("           Reports           ");
             Console.WriteLine("----------------------------------\n");
             Console.WriteLine("1. Properties Report");
-            Console.WriteLine("2. Cients Report\n");
-            Console.WriteLine("----------------------------------");
+            Console.WriteLine("2. Cients Report");
+            Console.WriteLine("3. Back To Main Menu\n");
+            Console.WriteLine("----------------------------------\n");
+
+            Console.Write("Please enter an option: ");
+            int option = Convert.ToInt32(Console.ReadLine());
+
+            switch (option)
+            {
+                case 1:
+                    Console.Clear();
+                    Console.WriteLine("----------------------------------");
+                    Console.WriteLine("           Reports           ");
+                    Console.WriteLine("----------------------------------\n");
+                    Console.WriteLine("1. Residential Properties Report");
+                    Console.WriteLine("2. Commercial Properties Report");
+                    Console.WriteLine("3. Back To Main Menu\n");
+                    Console.WriteLine("----------------------------------\n");
+
+                    Console.Write("Select an option: ");
+                    int option1 = Convert.ToInt32(Console.ReadLine());
+
+                    if (option1 == 1){
+
+                        reports.ResidentialPropertyReport();
+                    }else if(option1 == 2){
+                        reports.CommercialPropertyReport();
+
+                    }else if (option1 == 3){
+                        NavigationUtils.BackToMain();
+                    }
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    NavigationUtils.BackToMain();
+                    break;
+                default:
+                    Console.WriteLine("Invalid option, Please try again.");
+                    return;
+            }
         }
 
 
@@ -86,7 +132,8 @@ namespace Program
         public void Exit()
         {
             Console.Clear();
-            Console.WriteLine("Exiting program...");
+            Console.WriteLine("Exiting Program...");
+            Environment.Exit(0);
            
         }
 

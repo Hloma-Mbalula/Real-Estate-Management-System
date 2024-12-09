@@ -72,8 +72,19 @@ namespace Program
                 var transaction = new Transaction(type, name, transactionIdCounter);
                 transactionList.AddTransaction(transaction);
 
+                Thread.Sleep(1000);
+                Console.WriteLine("Recording...");
+                Thread.Sleep(1000);
+                Console.Clear();
+
                 transactionIdCounter++;
                 Console.WriteLine("Transaction recorded successfully!\n");
+
+
+                Console.WriteLine("Enter any key to return to main menu: ");
+                Console.ReadLine();
+                NavigationUtils.BackToMain();
+                
             }
 
             public void View()

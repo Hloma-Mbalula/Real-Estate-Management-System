@@ -9,17 +9,16 @@ namespace Program
 {
     public class ManagePropertiesMenu
     {
+
         public Dictionary<int, Action> ManagePropsMenuOptions { get; private set; }
-        public string propetyName { get; set; }
-        public string propertyLocation { get; set; }
-        public string propertyType { get; set; }
+      
 
 
         public ManagePropertiesMenu()
         {
             ManagePropsMenuOptions = new Dictionary<int, Action>
             {
-                { 1, Add },
+                { 1, Property.Add },
                 { 2, View },
                 { 3, Search },
                 { 4, Edit },
@@ -63,11 +62,7 @@ namespace Program
 
         }
 
-        public void Add()
-        {
-            Console.WriteLine();
-
-        }
+       
 
         // View all
         public void View()

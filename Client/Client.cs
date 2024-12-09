@@ -31,7 +31,11 @@ namespace Program
 
         public ClientsLists()
         {
-            clientsList = new Dictionary<int, Client>();
+            clientsList = new Dictionary<int, Client>{
+                {"Hloma", "Mbalula", "Residential"},
+                {"Alutha", "Sejosing", "Commercial"},
+                {"Jensen", "Huang", "Commercial"}
+            };
         }
     }
 }
