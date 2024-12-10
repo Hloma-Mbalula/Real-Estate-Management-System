@@ -12,6 +12,7 @@ namespace Program
         public Dictionary<int, Property> ResidentialProperties { get; private set; }
 
         public Dictionary<int, Property> CommercialProperties { get; private set; }
+        
 
         public PropertyManager()
         {
@@ -29,5 +30,7 @@ namespace Program
             };
 
         }
+
+       
     }
 }

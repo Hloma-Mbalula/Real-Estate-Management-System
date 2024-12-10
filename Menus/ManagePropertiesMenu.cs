@@ -11,6 +11,7 @@ namespace Program
     {
 
         public Dictionary<int, Action> ManagePropsMenuOptions { get; private set; }
+        PropertyManager property = new PropertyManager();
       
 
 
@@ -18,7 +19,7 @@ namespace Program
         {
             ManagePropsMenuOptions = new Dictionary<int, Action>
             {
-                { 1, Property.Add },
+                { 1, Property.AddToCollection },
                 { 2, View },
                 { 3, Search },
                 { 4, Edit },
@@ -67,14 +68,129 @@ namespace Program
         // View all
         public void View()
         {
-            Console.WriteLine();
+            Console.Clear();
+
+            Console.WriteLine("----------------------------------");
+            Console.WriteLine("         Manage Properties        ");
+            Console.WriteLine("----------------------------------\n");
+            Console.WriteLine("1. Residential Properties");
+            Console.WriteLine("2. Commercial Properties\n");
+            Console.WriteLine("----------------------------------\n");
+
+            Console.Write("Please select an option: ");
+            int option = Convert.ToInt32(Console.ReadLine());
+
+            switch (option)
+            {
+                case 1:
+                    Console.Clear();
+                    foreach(var property in property.ResidentialProperties){
+                        
+                        Console.WriteLine("----------------------------------\n");
+                        Console.WriteLine($"{property.Value.Name}");
+                        Console.WriteLine($"\t{property.Value.PropertyType}");
+                        Console.WriteLine($"\t{property.Value.Features}");
+                        Console.WriteLine($"\t{property.Value.Location}\n");
+                        Console.WriteLine($"\t\t R{property.Value.Price}\n");
+                        Console.WriteLine("----------------------------------");  
+                    };
+                    Console.WriteLine("Press any button to return to main... ");
+                    Console.ReadLine();
+
+                    NavigationUtils.BackToMain();
+                    break;
+
+                case 2:
+                    Console.Clear();
+                    foreach(var property in property.CommercialProperties){
+                        
+                        Console.WriteLine("----------------------------------\n");
+                        Console.WriteLine($"{property.Value.Name}");
+                        Console.WriteLine($"\t{property.Value.PropertyType}");
+                        Console.WriteLine($"\t{property.Value.Features}");
+                        Console.WriteLine($"\t{property.Value.Location}\n");
+                        Console.WriteLine($"\t\t R{property.Value.Price}\n");
+                        Console.WriteLine("----------------------------------");
+                        
+                    };
+                    Console.WriteLine("Press any button to return to main... ");
+                    Console.ReadLine();
+
+                    NavigationUtils.BackToMain();
+                    break;
+                default:
+                    Console.WriteLine("Invalid option, please try again!");
+                    return;
+            }
+
         }
 
         // Search
         public void Search()
         {
-            Console.WriteLine();
-        }
+            Console.Clear();
+            Console.WriteLine("Residential or Commercial?");
+            string type = Console.ReadLine();
+
+            Console.Write("Type the full name of the property (This Program is case sensitive): ");
+            string name = Console.ReadLine();
+
+            if(type.Equals("Residential")){
+
+                foreach(var i in property.ResidentialProperties){
+
+                    if (name.Equals(i.Value.Name, StringComparison.OrdinalIgnoreCase)){
+                        Console.Clear();
+
+                        Console.WriteLine($"{i.Value.Name}");
+                        Console.WriteLine($"{i.Value.PropertyType}");
+                        Console.WriteLine($"{i.Value.Features}");
+                        Console.WriteLine($"{i.Value.Location}");
+                        Console.WriteLine($"{i.Value.Price}\n");
+
+                        Console.WriteLine("----------------------------------\n");
+                        Console.WriteLine("Press any button to return to main menu..");
+                        Console.ReadLine();
+
+                        NavigationUtils.BackToMain();
+                    }
+                    else{
+                        Console.WriteLine("Property could not be found, sorry!");
+                        Thread.Sleep(1000);
+
+                        NavigationUtils.BackToMain();
+                    }
+                }
+
+            }else if (type.Equals("Commercial")){
+
+                    foreach(var i in property.CommercialProperties ){
+
+                        if (name.Equals(i.Value.Name, StringComparison.OrdinalIgnoreCase)){
+                            Console.Clear();
+
+                            Console.WriteLine($"{i.Value.Name}");
+                            Console.WriteLine($"{i.Value.PropertyType}");
+                            Console.WriteLine($"{i.Value.Features}");
+                            Console.WriteLine($"{i.Value.Location}");
+                            Console.WriteLine($"{i.Value.Price}\n");
+
+                            Console.WriteLine("----------------------------------\n");
+                            Console.WriteLine("Press any button to return to main menu..");
+                            Console.ReadLine();
+
+                            NavigationUtils.BackToMain();
+                        }else{
+                            Console.WriteLine("Property could not be found, sorry!");
+                            Thread.Sleep(1000);
+
+                            NavigationUtils.BackToMain();
+                        }
+            }
+        }else{
+                Console.WriteLine("Invalid option!");
+                Search();
+            }}
 
         // Edit
         public void Edit()

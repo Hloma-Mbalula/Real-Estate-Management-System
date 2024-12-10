@@ -10,10 +10,10 @@ namespace Program
 {
     public class Client
     {
-        public string Name { get; private set; }
-        public string Surname { get; private set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
         public int ID { get; private set; }
-        public string PropertyType { get; private set; }
+        public string PropertyType { get; set; }
 
         public Client(string name, string surname, string propertyType)
         {
@@ -27,14 +27,14 @@ namespace Program
 
     public class ClientsLists
     {
-        public Dictionary<int, Client> clientsList { get; private set; }
+        public Dictionary<int, Client> clientsList { get; set; }
 
         public ClientsLists()
         {
             clientsList = new Dictionary<int, Client>{
-                {"Hloma", "Mbalula", "Residential"},
-                {"Alutha", "Sejosing", "Commercial"},
-                {"Jensen", "Huang", "Commercial"}
+                {1, new Client("Hloma", "Mbalula", "Residential")},
+                {2, new Client("Alutha", "Sejosing", "Commercial")},
+                {3, new Client("Jensen", "Huang", "Commercial")}
             };
         }
     }
