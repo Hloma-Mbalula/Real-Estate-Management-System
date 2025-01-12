@@ -16,16 +16,15 @@ namespace Program
 
             Console.WriteLine("...Loading");
             Thread.Sleep(1000);
-
-            PrintMainMenu();
-
-
+            while (true)
+            {
+                PrintMainMenu();
+            }
         }
 
         // Main Menu 
         public static void PrintMainMenu()
         {
-            var method = new MainMenu();
 
             Console.Clear();
 

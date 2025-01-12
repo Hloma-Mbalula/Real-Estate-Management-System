@@ -8,12 +8,10 @@ namespace Program
 {
     public class Reports 
     { 
-        PropertyManager properties = new PropertyManager();
-        ClientsLists clientList = new ClientsLists();
-
          // This method will allow for users to view Residential Property reports
 
          public void ResidentialPropertyReport(){
+
             Console.Clear();
             DateTime today = DateTime.Today;
             Console.WriteLine(today);

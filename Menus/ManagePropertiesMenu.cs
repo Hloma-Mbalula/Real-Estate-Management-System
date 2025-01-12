@@ -7,65 +7,140 @@ using Program;
 
 namespace Program
 {
-    public class ManagePropertiesMenu
+
+    // This file should handle everything about the Properties and managing properties
+
+    public class Property
     {
 
-        public Dictionary<int, Action> ManagePropsMenuOptions { get; private set; }
-        PropertyManager property = new PropertyManager();
-      
+        public string Name { get; set; }
 
+        public string PropertyType { get; set; }
+
+        public string Features { get; set; }
+        public string Location { get; set; }
+        public double Price { get; set; }
+
+        public Property(string name, string type, string features, string location, double price)
+        {
+            Name = name;
+            PropertyType = type;
+            Features = features;
+            Location = location;
+            Price = price;
+        }
+
+        public override string ToString()
+        {
+            return $"Property Name: {Name}\n" +
+                   $"Property Type: {PropertyType}\n" +
+                   $"Property Features: {Features}\n" +
+                   $"Property Location: {Location}\n" +
+                   $"Property Price: {Price}";
+        }
+
+    }
+
+    public class PropertyManager
+    {
+        public static Dictionary<int, Property> ResidentialProperties { get; set; }
+        public static Dictionary<int, Property> CommercialProperties { get; set; }
+        public static int residentialCounter = 1;
+        public static int commercialCounter = 1;
+
+
+
+        public PropertyManager()
+        {
+            ResidentialProperties = new Dictionary<int, Property>
+            {
+                { 1, new Property("Lonova House", "Residential", "2 Bedrooms, Swimming Pool", "Sandton", 1200000) }
+            };
+
+            CommercialProperties = new Dictionary<int, Property>{
+                {1, new Property("The Bank","Commercial","12 Story Building","Rosebank, Johannesburg", 20000000)
+                }
+            };
+
+        }
+
+    }
+
+    // Manage Properties 
+    public class ManagePropertiesMenu
+    {
+        public Dictionary<int, Action> ManagePropsMenuOptions { get; private set; }
 
         public ManagePropertiesMenu()
         {
             ManagePropsMenuOptions = new Dictionary<int, Action>
             {
-                { 1, Property.AddToCollection },
+                { 1, AddToCollection },
                 { 2, View },
                 { 3, Search },
-                { 4, Edit },
-                { 5, Delete },
-                { 6, Back }
+
+                { 4, Delete },
+                { 5, Back }
             };
         }
-        public void ManageProperties()
+    }
+
+    public class ManagePropertiesMethods
+    {
+        // Add
+        public static void AddToCollection()
         {
-            Console.Clear();
-            Console.WriteLine("----------------------------------");
-            Console.WriteLine("         Manage Properties        ");
-            Console.WriteLine("----------------------------------\n");
-            Console.WriteLine("1. Add Property");
-            Console.WriteLine("2. View Properties");
-            Console.WriteLine("3. Search Properties");
-            Console.WriteLine("4. Edit Propertiies");
-            Console.WriteLine("5. Delete Properties");
-            Console.WriteLine("6. Back to Main Menu\n");
-            Console.WriteLine("----------------------------------\n");
-
-            Console.Write("Please select an option: ");
-
-            if (int.TryParse(Console.ReadLine(), out int option))
+            try
             {
-                if (ManagePropsMenuOptions.TryGetValue(option, out Action action))
+                Console.Write("Property Name: ");
+                string name = Console.ReadLine();
+
+                Console.Write("Property Type (Residential or Commercial): ");
+                string type = Console.ReadLine();
+
+                Console.Write("Features: ");
+                string features = Console.ReadLine();
+
+                Console.Write("Location: ");
+                string location = Console.ReadLine();
+
+                Console.Write("Price: ");
+                double price = Convert.ToDouble(Console.ReadLine());
+                while (!double.TryParse(Console.ReadLine(), out price)) ;
+
+                Property newProperty = new Property(name, type, features, location, price);
+
+                if (type.Equals("Residential", StringComparison.OrdinalIgnoreCase))
+
                 {
-                    Console.Clear();
-                    action.Invoke();
+                    PropertyManager.ResidentialProperties.Add(PropertyManager.residentialCounter++, newProperty);
+
+                }
+                else if (type.Equals("Commercial", StringComparison.OrdinalIgnoreCase))
+                {
+                    PropertyManager.CommercialProperties.Add(PropertyManager.commercialCounter++, newProperty);
                 }
                 else
                 {
-                    Console.WriteLine("Invalid option, please try again");
+                    Console.WriteLine("Invalid property type!");
+                    return;
                 }
+
+
+                Console.Clear();
+                Console.WriteLine("Property has been successfully addded!\n");
+                Console.WriteLine("Please press any key to return to main menu...");
+                Console.ReadKey();
+                NavigationUtils.BackToMain();
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("Invalid option, please select a number.");
+                Console.WriteLine($"An error occurred: {ex.Message}");
+                Console.ReadKey();
             }
-
-
         }
 
-       
-
-        // View all
+        // View
         public void View()
         {
             Console.Clear();
@@ -78,54 +153,51 @@ namespace Program
             Console.WriteLine("----------------------------------\n");
 
             Console.Write("Please select an option: ");
+
+
             int option = Convert.ToInt32(Console.ReadLine());
 
             switch (option)
             {
                 case 1:
                     Console.Clear();
-                    foreach(var property in property.ResidentialProperties){
-                        
-                        Console.WriteLine("----------------------------------\n");
-                        Console.WriteLine($"{property.Value.Name}");
-                        Console.WriteLine($"\t{property.Value.PropertyType}");
-                        Console.WriteLine($"\t{property.Value.Features}");
-                        Console.WriteLine($"\t{property.Value.Location}\n");
-                        Console.WriteLine($"\t\t R{property.Value.Price}\n");
-                        Console.WriteLine("----------------------------------");  
-                    };
-                    Console.WriteLine("Press any button to return to main... ");
-                    Console.ReadLine();
+                    foreach (var property in PropertyManager.ResidentialProperties)
+                    {
 
-                    NavigationUtils.BackToMain();
-                    break;
-
-                case 2:
-                    Console.Clear();
-                    foreach(var property in property.CommercialProperties){
-                        
                         Console.WriteLine("----------------------------------\n");
-                        Console.WriteLine($"{property.Value.Name}");
-                        Console.WriteLine($"\t{property.Value.PropertyType}");
-                        Console.WriteLine($"\t{property.Value.Features}");
-                        Console.WriteLine($"\t{property.Value.Location}\n");
-                        Console.WriteLine($"\t\t R{property.Value.Price}\n");
+                        Console.WriteLine($"{property.Value}");
+
                         Console.WriteLine("----------------------------------");
-                        
+
                     };
                     Console.WriteLine("Press any button to return to main... ");
-                    Console.ReadLine();
+                    Console.ReadKey();
 
                     NavigationUtils.BackToMain();
                     break;
+                case 2:
+
+                    Console.Clear();
+                    foreach (var property in PropertyManager.CommercialProperties)
+                    {
+                        Console.WriteLine("----------------------------------\n");
+                        Console.WriteLine($"{property.Value}");
+
+                        Console.WriteLine("----------------------------------");
+                    };
+                    Console.WriteLine("Press any button to return to main...");
+                    Console.ReadKey();
+
+                    NavigationUtils.BackToMain();
+                    break;
+
                 default:
                     Console.WriteLine("Invalid option, please try again!");
-                    return;
+                    break;
             }
 
         }
-
-        // Search
+        // Search Method
         public void Search()
         {
             Console.Clear();
@@ -135,26 +207,19 @@ namespace Program
             Console.Write("Type the full name of the property (This Program is case sensitive): ");
             string name = Console.ReadLine();
 
-            if(type.Equals("Residential")){
+            if (type.Equals("Residential"))
+            {
+                Console.Clear();
 
-                foreach(var i in property.ResidentialProperties){
+                foreach (var i in PropertyManager.ResidentialProperties)
+                {
 
-                    if (name.Equals(i.Value.Name, StringComparison.OrdinalIgnoreCase)){
-                        Console.Clear();
-
-                        Console.WriteLine($"{i.Value.Name}");
-                        Console.WriteLine($"{i.Value.PropertyType}");
-                        Console.WriteLine($"{i.Value.Features}");
-                        Console.WriteLine($"{i.Value.Location}");
-                        Console.WriteLine($"{i.Value.Price}\n");
-
-                        Console.WriteLine("----------------------------------\n");
-                        Console.WriteLine("Press any button to return to main menu..");
-                        Console.ReadLine();
-
-                        NavigationUtils.BackToMain();
+                    if (name.Equals(i.Value.Name, StringComparison.OrdinalIgnoreCase))
+                    {
+                        Console.WriteLine($"{i.Value}");
                     }
-                    else{
+                    else
+                    {
                         Console.WriteLine("Property could not be found, sorry!");
                         Thread.Sleep(1000);
 
@@ -162,43 +227,59 @@ namespace Program
                     }
                 }
 
-            }else if (type.Equals("Commercial")){
+                Console.WriteLine("----------------------------------\n");
+                Console.WriteLine("Press any button to return to main menu..");
+                Console.ReadKey();
 
-                    foreach(var i in property.CommercialProperties ){
+                NavigationUtils.BackToMain();
 
-                        if (name.Equals(i.Value.Name, StringComparison.OrdinalIgnoreCase)){
-                            Console.Clear();
-
-                            Console.WriteLine($"{i.Value.Name}");
-                            Console.WriteLine($"{i.Value.PropertyType}");
-                            Console.WriteLine($"{i.Value.Features}");
-                            Console.WriteLine($"{i.Value.Location}");
-                            Console.WriteLine($"{i.Value.Price}\n");
-
-                            Console.WriteLine("----------------------------------\n");
-                            Console.WriteLine("Press any button to return to main menu..");
-                            Console.ReadLine();
-
-                            NavigationUtils.BackToMain();
-                        }else{
-                            Console.WriteLine("Property could not be found, sorry!");
-                            Thread.Sleep(1000);
-
-                            NavigationUtils.BackToMain();
-                        }
             }
-        }else{
-                Console.WriteLine("Invalid option!");
-                Search();
-            }}
+            else if (type.Equals("Commercial"))
+            {
 
-        // Edit
+                Console.Clear();
+
+                foreach (var i in property.CommercialProperties)
+                {
+
+                    if (name.Equals(i.Value.Name, StringComparison.OrdinalIgnoreCase))
+                    {
+                        Console.WriteLine($"{i.Value}");
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("Property could not be found, sorry!");
+                        Thread.Sleep(1000);
+
+                        NavigationUtils.BackToMain();
+                    }
+                }
+
+                Console.WriteLine("----------------------------------\n");
+                Console.WriteLine("Press any button to return to main menu..");
+                Console.ReadKey();
+
+                NavigationUtils.BackToMain();
+            }
+            else
+            {
+                Console.WriteLine("Invalid option! Please try again.");
+                return;
+
+            }
+
+        }
+
+
+
+        // Edit Method
         public void Edit()
         {
             Console.WriteLine();
         }
 
-        // Delete
+        // Delete Method
         public void Delete()
         {
             Console.WriteLine();
@@ -210,5 +291,30 @@ namespace Program
         {
             NavigationUtils.BackToMain();
         }
+
+        public void ResidentialPropertyReport()
+        {
+            Console.Clear();
+            Console.WriteLine("Residential Property Report\n");
+            foreach( var property in PropertyManager.ResidentialProperties)
+            {
+                Console.WriteLine(property.Value);
+            }
+        }
+
+        public void CommercialPropertyReport()
+        {
+            Console.Clear();
+            Console.WriteLine("Commercial Property Report\n");
+            foreach(var property in PropertyManager.CommercialProperties)
+            {
+                Console.WriteLine(property.Value);
+            }
+        }
     }
 }
+        
+       
+
+    
+

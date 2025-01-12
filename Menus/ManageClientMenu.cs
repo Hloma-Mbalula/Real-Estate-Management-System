@@ -8,24 +8,62 @@ using Program;
 
 namespace Program
 {
-    
-    public class ManageClientMenu
+    public class Client
     {
-        ClientsLists list = new ClientsLists();
-        public Dictionary<int, Action> ManageClientOptions;
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string PropertyType { get; set; }
 
-        public ManageClientMenu()
+
+        public Client(string name, string surname, string propertyType)
         {
-            ManageClientOptions = new Dictionary<int, Action>
+
+            Name = name;
+            Surname = surname;
+            PropertyType = propertyType;
+
+        }
+
+        public override string ToString()
+        {
+            return $"Client: {Name} {Surname}\n" +
+                   $"Property Type: {PropertyType}";
+        }
+    }
+
+    public class ClientRepository
+    {
+        public static Dictionary<int, Client> clientsList { get; set; }
+
+        public ClientRepository()
+        {
+            clientsList = new Dictionary<int, Client>{
+                {1, new Client("Hloma", "Mbalula", "Residential")},
+                {2, new Client("Alutha", "Sejosing", "Commercial")},
+                {3, new Client("Jensen", "Huang", "Commercial")}
+            };              
+        }
+    }
+
+    public class ClientsMenuDictionary
+    {
+        public static Dictionary<int, Action> ManageClient { get; set; }
+
+        public ClientsMenuDictionary()
+        {
+            ManageClient = new Dictionary<int, Action>
             {
-                {1, AddClient },
-                {2, ViewClients },
-                {3, SearchClients },
-                {4, EditClients },
-                {5, DeleteClients },
-                {6, NavigationUtils.BackToMain }
+                { 1, ManageClientMenu.AddClient },
+                { 2, ManageClientMenu.ViewClients },
+                { 3, ManageClientMenu.SearchClients },
+                { 4, ManageClientMenu.DeleteClients },
+                { 5, NavigationUtils.BackToMain }
             };
         }
+    }
+
+    public class ManageClientMenu
+    {
         // Managing Clients
         public void ManageClients()
         {
@@ -36,16 +74,15 @@ namespace Program
             Console.WriteLine("1. Add Client");
             Console.WriteLine("2. View Clients");
             Console.WriteLine("3. Search Clients");
-            Console.WriteLine("4. Edit Clients");
-            Console.WriteLine("5. Delete Clients");
-            Console.WriteLine("6. Back to Main Menu\n");
+            Console.WriteLine("4. Delete Clients");
+            Console.WriteLine("5. Back to Main Menu\n");
             Console.WriteLine("----------------------------------\n");
 
             Console.Write("Select an option: ");
 
             if (int.TryParse(Console.ReadLine(), out int option))
             {
-                if (ManageClientOptions.TryGetValue(option, out Action action))
+                if (ClientsMenuDictionary.ManageClient.TryGetValue(option, out Action action))
                 {
                     Console.Clear();
                     action.Invoke();
@@ -61,15 +98,15 @@ namespace Program
             }
 
         }
+
+
+        // Adding Clients
         public void AddClient()
         {
             string name;
             string surname;
-            int id;
             string propertytype;
-
-            Console.Write("Enter clients' Id: \n");
-            id = Convert.ToInt32(Console.ReadLine());
+            int idCounter = ClientRepository.clientslist.Count;
 
             Console.Write("Enter clients' name: \n");
             name = Console.ReadLine();
@@ -80,22 +117,29 @@ namespace Program
             Console.Write("Enter clients' property type: \n");
             propertytype = Console.ReadLine();
 
-            var client = new Client( name, surname, propertytype);
-            
+            var client = new Client(name, surname, propertytype);
+            ClientRepository.clientsList.Add(idCounter++, client);
 
-            list.clientsList.Add(id, client);
+            Console.Clear();
+            Console.WriteLine("Client has been successfully added!");
+            Console.WriteLine("Press any key to return to main menu...");
+            Console.ReadKey();
+
+            NavigationUtils.BackToMain();
         }
 
+
+        // Viewing Clients
         public void ViewClients()
         {
-            var list = new ClientsLists();
 
-            foreach (var item in list.clientsList)
+            foreach (var item in ClientRepository.clientsList)
             {
-                Console.WriteLine(item);
+                Console.WriteLine($"{item.Value.Name} {item.Value.Surname}: {item.Value.PropertyType}");
             }
         }
 
+        // Searching Clients
         public void SearchClients()
         {
             string name;
@@ -117,100 +161,96 @@ namespace Program
                 case 1:
                     Console.Write("Enter clients name: \n");
                     name = Console.ReadLine();
-                    for(int i = 0; i < list.clientsList.Count; i++)
+
+                    bool clientFound = false;
+
+                    foreach (var client in ClientRepository.clientsList)
                     {
-                        if ( list.clientsList[i].Equals(name))
+                        if (client.Value.Name.Equals(name, StringComparison.OrdinalIgnoreCase))
                         {
-                            Console.WriteLine(list.clientsList[i]);
-                        }
-                        else
-                        {
-                            Console.WriteLine("Client unavailable, please try again.");
+                            Console.WriteLine(client.Value);
+                            clientFound = true;
+                            return;
                         }
                     }
                     break;
                 case 2:
                     Console.Write("Enter clients surname: \n");
                     surname = Console.ReadLine();
-                    for (int i = 0; i < list.clientsList.Count; i++)
+                    bool clientFound = false;
+
+                    foreach (var client in ClientRepository.clientsList)
                     {
-                        if (list.clientsList[i].Equals(surname))
+                        if (client.Value.Surname.Equals(surname, StringComparison.OrdinalIgnoreCase))
                         {
-                            Console.WriteLine(list.clientsList[i]);
-                        }
-                        else
-                        {
-                            Console.WriteLine("Client unavailable, please try again.");
+                            Console.WriteLine(client.Value);
+                            clientFound = true;
+                            return;
                         }
                     }
+
                     break;
                 case 3:
                     Console.Write("Enter clients' property type: \n");
                     propertyType = Console.ReadLine();
-                    for (int i = 0; i < list.clientsList.Count; i++)
+                    bool clientFound = false;
+
+                    foreach (var client in ClientRepository.clientsList)
                     {
-                        if (list.clientsList[i].Equals(propertyType))
+                        if (client.Value.PropertyType.Equals(propertyType, StringComparison.OrdinalIgnoreCase))
                         {
-                            Console.WriteLine(list.clientsList[i]);
-                        }
-                        else
-                        {
-                            Console.WriteLine("Client unavailable, please try again.");
-                        }
-                    }
-                    break;
-                case 4:
-                    Console.Write("Enter clients' Id");
-                    Id = Convert.ToInt32(Console.ReadLine());
-                    for (int i = 0; i < list.clientsList.Count; i++)
-                    {
-                        if (list.clientsList[i].Equals(Id))
-                        {
-                            Console.WriteLine(list.clientsList[i]);
-                        }
-                        else
-                        {
-                            Console.WriteLine("Client unavailable, please try again.");
+                            Console.WriteLine(client.Value);
+                            clientFound = true;
+                            return;
                         }
                     }
                     break;
                 default:
                     Console.WriteLine("Invalid option, please try again.");
                     break;
-                   
-
             }
-
         }
-
-        public void EditClients()
+        
+        // Deleting Clients
+        public void DeleteClients()
         {
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("         List of Clients         ");
-            Console.WriteLine("---------------------------------\n");
-            foreach (var client in list.clientsList) 
-            {
-                Console.WriteLine(client);
-            }
-            Console.WriteLine("---------------------------------");
-            Console.Write("Enter Clients Id to edit the client: \n");
-            int option = Convert.ToInt32(Console.ReadLine());
-
             Console.Clear();
+            Console.Write("Please entner the name of the client you want to delete: ");
 
-            for (int i = 0; i < list.clientsList.Count; i++)
-            {
-                if (list.clientsList.Equals(option))
+                string name = Console.ReadLine();
+                bool clientFound = false;
+
+                foreach(var client in ClientRepository.clientsList)
                 {
+                    if (client.Value.Name.Equals(name, StringComparison.OrdinalIgnoreCase))
+                    {
+                        Console.Clear();
 
+                        Console.WriteLine(client.Value);
+                        clientFound = true;
+
+                        Console.WriteLine("To Confirm, is this the client you want to delete? (Y or N) \n ");
+                        string option = Console.ReadLine();
+
+                        if(option == "Y")
+                        {
+                            client.Value.Remove(); // Double check on how to remove a collection from a dictionary of collections
+                            Console.WriteLine("Client has been successfully removed.");
+                            Console.WriteLine("Press any key to return to main menu....");
+                            Console.ReadKey();
+                            NavigationUtils.BackToMain();
+                        }
+                        else if(option == "N")
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Press any key to return to main menu..");
+                            Console.ReadKey();
+                            NavigationUtils.BackToMain();
+                        }
+
+                    }
                 }
-
-                
-
-            }
-
         }
-
-        public void DeleteClients() { }
+            
     }
 }
